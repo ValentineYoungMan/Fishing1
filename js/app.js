@@ -1,5 +1,5 @@
 //Провірка підтримки webp, додавання класу webp або no-webp для HTML
-export function isWebp() {
+function isWebp() {
     // Провірка підтримки webp
     function testWebP(callback) {
 
