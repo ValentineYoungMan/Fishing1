@@ -95,7 +95,7 @@ if (isMobile.any()) {
 
 let headerNavigationElement = document.querySelectorAll('.header-navigation-element')
 
-
+let header = document.querySelector('.header')
 
 //--------------------------------------------------------
 
@@ -105,15 +105,22 @@ for (let anchor of anchors) {
     anchor.addEventListener("click", function(event) {
         event.preventDefault();
         const sectionId = anchor.getAttribute('href')
+        
         document.querySelector(sectionId).scrollIntoView({
             behavior: "smooth",
             block: 'start',
         })
         
+            setTimeout(()=>{
+                if(window.pageYOffset != 0){
+                    console.log(window.pageYOffset)
+                    header.classList.add('_hide');
+                }
+            }, 1000)
+        
         
     })
 }
-
 //--------------------------------------------------------
 
 let sections = document.querySelectorAll('section');
@@ -129,8 +136,6 @@ window.addEventListener('scroll', () => {
                     el.classList.remove('_linkActive');
                 }
             })
-
-            
             document.querySelectorAll('.header-navigation-element')[i].classList.add('_linkActive');
         }
     })
@@ -138,6 +143,9 @@ window.addEventListener('scroll', () => {
 
 })
 
+document.addEventListener('scroll', ()=>{
+    header.classList.remove('_hide');
+})
 
 //--------------------------------------------------------
 
@@ -211,11 +219,11 @@ function aboutCountIncrement() {
 //------------------------------------------------
 
 let buttonToTop = document.querySelector('.button-toTop')
-let header = document.querySelector('.header')
 
 window.addEventListener('scroll', () => {
     if(window.pageYOffset > header.offsetHeight) {
         buttonToTop.classList.add('_visible')
+       // header.classList.remove('_hide')
     } else if(window.pageYOffset <= header.offsetHeight){
         buttonToTop.classList.remove('_visible')
     }
