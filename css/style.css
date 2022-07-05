@@ -151,6 +151,16 @@ body._lock {
   z-index: 40;
   background-color: #0A212D;
   height: 86px;
+  -webkit-transition: top 0.5s;
+  -o-transition: top 0.5s;
+  transition: top 0.5s;
+}
+
+.header._hide {
+  top: -35%;
+  -webkit-transition: top 0.5s;
+  -o-transition: top 0.5s;
+  transition: top 0.5s;
 }
 
 .header-container {
