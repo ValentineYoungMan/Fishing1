@@ -113,7 +113,7 @@ for (let anchor of anchors) {
         
             setTimeout(()=>{
                 if(window.pageYOffset != 0){
-                    console.log(window.pageYOffset)
+                    
                     header.classList.add('_hide');
                 }
             }, 1000)
