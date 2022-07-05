@@ -113,7 +113,30 @@ for (let anchor of anchors) {
         
             setTimeout(()=>{
                 if(window.pageYOffset != 0){
-                    
+                    console.log(window.pageYOffset)
+                    header.classList.add('_hide');
+                }
+            }, 1000)
+        
+        
+    })
+}
+
+const anchors2 = document.querySelectorAll('.footer-nav-a[href]')
+
+for (let anchor of anchors2) {
+    anchor.addEventListener("click", function(event) {
+        event.preventDefault();
+        const sectionId = anchor.getAttribute('href')
+        
+        document.querySelector(sectionId).scrollIntoView({
+            behavior: "smooth",
+            block: 'start',
+        })
+        
+            setTimeout(()=>{
+                if(window.pageYOffset != 0){
+                    console.log(window.pageYOffset)
                     header.classList.add('_hide');
                 }
             }, 1000)
